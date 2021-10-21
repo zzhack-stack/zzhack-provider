@@ -28,5 +28,5 @@ Run `pipenv run zzhack publish` to publish the post which in current path, the c
 
 The `metadata.json` file can help `zzhack` app to easies know more key information about posts.
 
-# LICENSE
+## LICENSE
 GPL.

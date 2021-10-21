@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "*"
+bullet = "*"
+setuptools = "*"
+myapp = {editable = true, path = "."}
+
+[dev-packages]
+
+[scripts]
+setup = "pipenv install -e ."
+
+[requires]
+python_version = "3.9"

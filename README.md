@@ -22,7 +22,7 @@ pipenv run setup
 Run `pipenv run zzhack publish` to publish the post which in current path, the command will create a metadata file that describe information of the post called `metadata.json`.
 ```json
 {
-    "cover": str, "title": str, "filename": str, "sammary": str
+    "cover": "str", "title": "str", "filename": "str", "sammary": "str"
 }
 ```
 

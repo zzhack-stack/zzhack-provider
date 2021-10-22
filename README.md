@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/zzhack-stack/zzhack-provider/main/docs/Artboard.svg" />
 
 # zzhack-provider
-This repository is used to provide data to zzhack.
+This repository is used to provide data to zzhack, but you don't have to care about anything, just write your thinking down, and you can see your thinking is render in zzhack perfectly 🎉
 
 ## Quick start
 First you should install dependencies by `pipenv`

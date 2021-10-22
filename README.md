@@ -4,7 +4,7 @@ This repository is used to provide data to zzhack.
 ## TODO
 - [x] publish post
 - [ ] generate static assets from source code
-- [ ] analyze the relationship between posts and generate a root metadata file to describe the relationship
+- [x] analyze the relationship between posts and generate a root metadata file to describe the relationship
 
 ## Quick start
 First you should install dependencies by `pipenv`

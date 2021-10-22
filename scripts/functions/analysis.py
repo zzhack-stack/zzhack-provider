@@ -33,6 +33,10 @@ def extract_metadata_from_categories(category_name):
     posts = listdir(category_name)
 
     def map_filename2metadata(post_dirname):
+        post_dir_or_file = Path(path.join(category_name, post_dirname))
+        if not post_dir_or_file.is_dir():
+            return None
+
         post_path = path.join(category_name, post_dirname, METADATA_FILENAME)
         metadata_file_handle = open(post_path, 'r')
         metadata_content = metadata_file_handle.read()
@@ -41,7 +45,7 @@ def extract_metadata_from_categories(category_name):
 
         return metadata_dict
 
-    return list(map(map_filename2metadata, posts))
+    return list(filter(lambda metadata: metadata != None, map(map_filename2metadata, posts)))
 
 def analyze_metadata():
     dist_metadata = {

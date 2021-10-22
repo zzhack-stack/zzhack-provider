@@ -3,7 +3,7 @@ This repository is used to provide data to zzhack.
 
 ## TODO
 - [x] publish post
-- [ ] generate static assets from source code
+- [x] generate static assets from source code
 - [x] analyze the relationship between posts and generate a root metadata file to describe the relationship
 
 ## Quick start

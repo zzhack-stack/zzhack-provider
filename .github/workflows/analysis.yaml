@@ -1,0 +1,28 @@
+name: checker
+on: [push]
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    name: Analyze the relationship between posts and create metadata file automatically
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install deps
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: install
+
+      - name: Link zzhack to global bin
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: install -e .
+
+      - name: Exec zzhack analysis
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: run zzhack analysis
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 🤖️ create root metadata file by robot 🌟

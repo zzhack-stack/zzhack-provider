@@ -1,7 +1,6 @@
-from click import group, CommandCollection
+from click import group, CommandCollection, option
 from typing import Final
-from scripts.functions import publish_post
-from scripts.functions import analyze_metadata
+from scripts.functions import publish_post, upload_to_cdn, analyze_metadata
 
 @group()
 def publish_group():
@@ -20,8 +19,10 @@ def publish():
     publish_post()
 
 @static_group.command()
-def static():
-    pass
+@option("--ak", required=True, help="The access key of QiNiu")
+@option("--sk", required=True, help="The secret key of QiNiu")
+def upload(ak: str, sk: str):
+    upload_to_cdn(ak, sk)
 
 @analysis_group.command()
 def analysis():

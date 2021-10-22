@@ -8,6 +8,7 @@ click = "*"
 bullet = "*"
 setuptools = "*"
 myapp = {editable = true, path = "."}
+qiniu = "*"
 
 [dev-packages]
 

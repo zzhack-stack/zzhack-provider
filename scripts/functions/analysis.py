@@ -58,3 +58,4 @@ def analyze_metadata():
     file_handle = open(METADATA_FILENAME, 'w')
     file_handle.write(dumps(dist_metadata, ensure_ascii=False, indent=2))
     file_handle.close()
+    print("Compolet create metadata.json in the root path！🎉")

@@ -3,9 +3,8 @@ from os import listdir, path
 from typing import Final, Union
 from json import dumps
 from pathlib import Path
+from .constants import METADATA_FILENAME, POST_EXTENSION
 
-POST_EXTENSION: Final = '.md'
-METADATA_FILENAME: Final = 'metadata.json'
 SAMMARY_CHAR_COUNT: Final = 200
 
 is_post_file = lambda extension: extension == POST_EXTENSION
@@ -61,13 +60,21 @@ def create_post_metadata(data: Union[str, str]):
 
     file_handle = open(METADATA_FILENAME, 'w')
     data['sammary'] = data['sammary'].replace('\n', '')
-    metadata_data = dumps(data, ensure_ascii=False)
+    metadata_data = dumps(data, ensure_ascii=False, indent=2)
     file_handle.write(metadata_data)
     file_handle.close()
 
 def publish_post():
+    """publish the markdown file as post"""
     post_filename = peek_post_filename()
     content = read_post_content(post_filename)
     post_metadata = get_metadata_data_from_prompt(post_filename, content)
     create_post_metadata(post_metadata)
 
+def publish_book():
+    """publish the directory as book"""
+    pass
+
+def publish_translate_post():
+    """publish the markdown file as translate post"""
+    pass

@@ -14,17 +14,17 @@ def static_group():
 def analysis_group():
     pass
 
-@publish_group.command()
+@publish_group.command(help="Generate corresponding metadata.json in current path")
 def publish():
     publish_post()
 
-@static_group.command()
+@static_group.command(help="Upload the static files to CDN")
 @option("--ak", required=True, help="The access key of QiNiu")
 @option("--sk", required=True, help="The secret key of QiNiu")
 def upload(ak: str, sk: str):
     upload_to_cdn(ak, sk)
 
-@analysis_group.command()
+@analysis_group.command(help="Create root metadata.json")
 def analysis():
     analyze_metadata()
 

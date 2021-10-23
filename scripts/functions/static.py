@@ -1,8 +1,8 @@
 from typing import Final, Callable
 from os import listdir, path
 from pathlib import Path
-from .constants import CONSTANT_FILE_PATH, BUCKET_NAME, METADATA_FILENAME, POSTS_DIRNAME, POST_EXTENSION
-from qiniu import Auth, put_file, etag
+from .constants import CONSTANT_FILE_PATH, BUCKET_NAME, METADATA_FILENAME, POSTS_DIRNAME, POST_EXTENSION, CDN_DOMAIN
+from qiniu import Auth, put_file, etag, CdnManager
 import qiniu.config
 
 """
@@ -18,8 +18,14 @@ def upload_stuff(file_path: str, ak: str, sk: str ):
     client = Auth(ak, sk)
     token = client.upload_token(BUCKET_NAME, file_path)
     res, info = put_file(token, file_path, file_path, version='v2')
+    url = f"http://{CDN_DOMAIN}/{file_path}"
+    cdn_manager = CdnManager(client)
+
+    # prefetch source to nodes of CDN
+    cdn_manager.refresh_urls([url])
 
     print(f"Upload {file_path} successful! Ready to be access 🎉")
+    print(f"And refresh {url}")
 
     assert res['key'] == file_path
     assert res['hash'] == etag(file_path)
@@ -46,10 +52,14 @@ def upload_post(pre_path: str, dirname: str, upload: Callable[[str], str]):
         elif file == METADATA_FILENAME:
             upload(filename_with_path(METADATA_FILENAME))
 
+
 def upload_metadata_and_posts(ak: str, sk: str):
     # upload posts
     categories = listdir(POSTS_DIRNAME)
     upload = lambda filename: upload_stuff(filename, ak, sk) 
+
+    # upload root metadata
+    upload(METADATA_FILENAME)
 
     for category in dir_filter(POSTS_DIRNAME, categories):
         post_path = path.join(POSTS_DIRNAME, category)

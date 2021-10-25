@@ -22,7 +22,7 @@ def upload_stuff(file_path: str, ak: str, sk: str ):
     cdn_manager = CdnManager(client)
 
     # prefetch source to nodes of CDN
-    cdn_manager.prefetch_urls([url])
+    cdn_manager.refresh_urls([url])
 
     print(f"Upload {file_path} successful! Ready to be access 🎉")
     print(f"And refresh {url}")

@@ -5,18 +5,18 @@ from json import dumps
 from pathlib import Path
 from .constants import METADATA_FILENAME, POST_EXTENSION
 
-SAMMARY_CHAR_COUNT: Final = 200
+SUMMARY_CHAR_COUNT: Final = 200
 
 is_post_file = lambda extension: extension == POST_EXTENSION
 
 def get_metadata_data_from_prompt(post_filename: str, content: str) -> dict[str, str]:
     post_title = Input(f"Please enter the title of {post_filename}: ").launch()
     is_set_cover = YesNo('Do you wanna set a cover for this post?').launch()
-    sammary = content[:SAMMARY_CHAR_COUNT]
+    summary = content[:SUMMARY_CHAR_COUNT]
     base_metadata = {
         'title': post_title,
         'filename': post_filename,
-        'sammary': sammary
+        'summary': summary
     }
 
     if not is_set_cover:
@@ -59,7 +59,7 @@ def create_post_metadata(data: Union[str, str]):
             return
 
     file_handle = open(METADATA_FILENAME, 'w')
-    data['sammary'] = data['sammary'].replace('\n', '')
+    data['summary'] = data['summary'].replace('\n', '')
     metadata_data = dumps(data, ensure_ascii=False, indent=2)
     file_handle.write(metadata_data)
     file_handle.close()

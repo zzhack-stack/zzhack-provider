@@ -4,6 +4,7 @@ from typing import Final, Union
 from json import dumps
 from pathlib import Path
 from .constants import METADATA_FILENAME, POST_EXTENSION
+from time import time
 
 SUMMARY_CHAR_COUNT: Final = 200
 
@@ -60,6 +61,7 @@ def create_post_metadata(data: Union[str, str]):
 
     file_handle = open(METADATA_FILENAME, 'w')
     data['summary'] = data['summary'].replace('\n', '')
+    data['create_at'] = millis = int(round(time() * 1000))
     metadata_data = dumps(data, ensure_ascii=False, indent=2)
     file_handle.write(metadata_data)
     file_handle.close()

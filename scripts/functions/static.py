@@ -1,7 +1,7 @@
 from typing import Final, Callable
 from os import listdir, path
 from pathlib import Path
-from .constants import CONSTANT_FILE_PATH, BUCKET_NAME, METADATA_FILENAME, POSTS_DIRNAME, POST_EXTENSION, CDN_DOMAIN
+from .constants import CONSTANT_FILE_PATH, BUCKET_NAME, METADATA_FILENAME, POSTS_DIRNAME, POST_EXTENSION, CDN_DOMAIN, FRAGMENTS_FILENAME
 from qiniu import Auth, put_file, etag, CdnManager
 import qiniu.config
 
@@ -60,6 +60,9 @@ def upload_metadata_and_posts(ak: str, sk: str):
 
     # upload root metadata
     upload(METADATA_FILENAME)
+
+    # upload fragments
+    upload(FRAGMENTS_FILENAME)
 
     for category in dir_filter(POSTS_DIRNAME, categories):
         post_path = path.join(POSTS_DIRNAME, category)

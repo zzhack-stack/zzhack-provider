@@ -14,10 +14,14 @@ def get_metadata_data_from_prompt(post_filename: str, content: str) -> dict[str,
     post_title = Input(f"Please enter the title of {post_filename}: ").launch()
     is_set_cover = YesNo('Do you wanna set a cover for this post?').launch()
     summary = content[:SUMMARY_CHAR_COUNT]
+    post_content_file_handle = open(post_filename, "r")
+    post_content = post_content_file_handle.read()
+    post_content_file_handle.close()
     base_metadata = {
         'title': post_title,
         'filename': post_filename,
-        'summary': summary
+        'summary': summary,
+        "content": post_content
     }
 
     if not is_set_cover:

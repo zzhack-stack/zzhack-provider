@@ -9,6 +9,7 @@ bullet = "*"
 setuptools = "*"
 myapp = {editable = true, path = "."}
 qiniu = "*"
+requests = "*"
 
 [dev-packages]
 

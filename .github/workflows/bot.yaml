@@ -18,6 +18,11 @@ jobs:
         with:
           command: install -e .
 
+      - name: Create ref issue of posts
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: run zzhack relation --ak=${{ secrets.BOT_GITHUB_AK }}
+
       - name: Exec zzhack analysis
         uses: VaultVulp/action-pipenv@v2.0.1
         with:

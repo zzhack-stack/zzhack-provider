@@ -9,6 +9,9 @@ def handle_traverse_posts(metadata_content, category_name, post_name, current_pa
     post_content = post_file_handle.read()
     post_file_handle.close()
     # update metadata info   
+    if metadata_content['content'] == post_content:
+        return
+
     metadata_content['content'] = post_content
     metadata_content['update_at'] = int(round(time() * 1000))
     serialize_metadata = dumps(metadata_content, ensure_ascii=False, indent=2)

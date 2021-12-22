@@ -21,9 +21,9 @@ ALLOW_EXTENSIONS: Final = [
 
 def upload_to_cdn(ak: str, sk: str):
     upload = lambda filename: upload_stuff(filename, ak, sk) 
-    ret = subprocess.run(['git', '--no-pager', 'diff', '--name-status', 'HEAD', 'HEAD~2'], capture_output=True)
-    diff_files = re.findall(r'\t(.+)\n', str(ret.stdout, 'utf-8'), re.M|re.I)
-    
+    ret = subprocess.run(['git', '--no-pager', 'diff', '--name-status', 'HEAD', 'HEAD~3'], capture_output=True)
+    diff_files = re.findall(r'(?<=\t)(.+?)[\n\t]', str(ret.stdout, 'utf-8'), re.M|re.I)
+
     for file in diff_files:
         _, extension = path.splitext(file)
         if extension in ALLOW_EXTENSIONS:

@@ -27,8 +27,7 @@ def upload_to_cdn(ak: str, sk: str):
     for file in diff_files:
         _, extension = path.splitext(file)
         if extension in ALLOW_EXTENSIONS:
-            # upload(file)
-            print(file)
+            upload(file)
 
 
 def upload_stuff(file_path: str, ak: str, sk: str ):

@@ -65,7 +65,7 @@ def create_post_metadata(data: Union[str, str]):
 
     file_handle = open(METADATA_FILENAME, 'w')
     data['summary'] = data['summary'].replace('\n', '')
-    data['create_at'] = millis = int(round(time() * 1000))
+    data['create_at'] = int(round(time() * 1000))
     metadata_data = dumps(data, ensure_ascii=False, indent=2)
     file_handle.write(metadata_data)
     file_handle.close()

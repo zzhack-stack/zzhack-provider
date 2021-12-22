@@ -24,7 +24,7 @@ def create_issue(ak: str):
     traverse_posts(handle_traverse_posts(ak))
 
 def handle_traverse_posts(ak: str):
-    def process_metadata(metadata, category_name, filename, metadata_path):
+    def process_metadata(metadata, category_name, filename, _, metadata_path):
         has_create_issue = ISSUE_ID_KEY in metadata
         post_addr = f"https://www.zzhack.fun/{category_name}/posts/{filename}.md"
 

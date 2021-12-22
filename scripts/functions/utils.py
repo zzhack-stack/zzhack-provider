@@ -30,4 +30,4 @@ def traverse_post(category_path: str, fn: Callable[[str, str, str, str], Any], c
         metadata_content = metadata_handle.read()
         metadata_handle.close()
 
-        fn(loads(metadata_content), category_name, post, metadata_path)
+        fn(loads(metadata_content), category_name, post, current_path, metadata_path)

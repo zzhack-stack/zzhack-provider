@@ -1,6 +1,6 @@
 from click import group, CommandCollection, option
 from typing import Final
-from scripts.functions import publish_post, upload_to_cdn, analyze_metadata, create_issue
+from scripts.functions import publish_post, upload_to_cdn, analyze_metadata, create_issue, update_posts
 
 @group()
 def publish_group():
@@ -17,6 +17,14 @@ def analysis_group():
 @group()
 def relation_group():
     pass
+
+@group()
+def update_group():
+    pass
+
+@update_group.command(help="Update posts")
+def update():
+    update_posts()
 
 @relation_group.command(help="Create relation data unit to zzhack")
 @option("--ak", required=True, help="The access key of GitHub account")
@@ -37,7 +45,7 @@ def upload(ak: str, sk: str):
 def analysis():
     analyze_metadata()
 
-cli: Final = CommandCollection(sources=[publish_group, static_group, analysis_group, relation_group])
+cli: Final = CommandCollection(sources=[update_group, publish_group, static_group, analysis_group, relation_group])
 
 def main():
     cli()

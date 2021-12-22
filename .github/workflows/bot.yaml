@@ -18,6 +18,11 @@ jobs:
         with:
           command: install -e .
 
+      - name: Update post content & update time
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: run zzhack update
+
       - name: Create ref issue of posts
         uses: VaultVulp/action-pipenv@v2.0.1
         with:

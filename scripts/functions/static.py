@@ -2,17 +2,33 @@ from typing import Final, Callable
 from os import listdir, path
 from pathlib import Path
 from .constants import CONSTANT_FILE_PATH, BUCKET_NAME, METADATA_FILENAME, POSTS_DIRNAME, POST_EXTENSION, CDN_DOMAIN, FRAGMENTS_FILENAME
+import subprocess
 from qiniu import Auth, put_file, etag, CdnManager
 import qiniu.config
+import re
 
 """
 Generate static assets according current data in the project,
 then dispatch the assets to CDN
 """
 
+ALLOW_EXTENSIONS: Final = [
+    '.json',
+    '.md',
+    '.png',
+    '.jpg'
+]
+
 def upload_to_cdn(ak: str, sk: str):
-    upload_constants(ak, sk)
-    upload_metadata_and_posts(ak, sk)
+    upload = lambda filename: upload_stuff(filename, ak, sk) 
+    ret = subprocess.run(['git', '--no-pager', 'diff', '--name-status', 'HEAD', 'HEAD~'], capture_output=True)
+    diff_files = re.findall(r'\t(.+)\n', str(ret.stdout, 'utf-8'), re.M|re.I)
+    
+    for file in diff_files:
+        _, extension = path.splitext(file)
+        if extension in ALLOW_EXTENSIONS:
+            upload(file)
+
 
 def upload_stuff(file_path: str, ak: str, sk: str ):
     client = Auth(ak, sk)

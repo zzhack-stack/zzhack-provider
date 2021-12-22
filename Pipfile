@@ -17,4 +17,4 @@ requests = "*"
 setup = "pipenv install -e ."
 
 [requires]
-python_version = "3.9"
+python_version = "3.10.1"

@@ -17,41 +17,15 @@ This site is building based on Rust & Yew, since the browser can run languages o
 The [Yew](https://yew.rs/) is a framework of Rust for building client web app, the interesting things is that it makes trick use of Rust's macro to express construction of component, a component may looks like:
 
 ```rust
-// see 
-fn view(&self) -> Html {
-        let article = self.props.article.clone();
+struct Foo {}
 
+impl Component for Foo {
+    fn view(&self) -> Html {
         html! {
-            <div class=self.style.to_string()>
-
-                {match article.cover {
-                    Some(cover) => html! {
-                        <div style=format!("background: {};", cover.background) class="cover-header">
-                            <img class="cover-img" src={cover.cover} />
-                        </div>
-                    },
-                    None => html! {}
-                }}
-
-                <div class="article-container">
-                    <h1 class="title article-text">{article.title.clone()}</h1>
-                    <div class="author">
-                        <Avatar user={article.user.clone()} />
-                        <div onclick=self.link.callback(|_| ArticleViewMessage::Follow)>
-                            <MatButton  raised=true label="Follow!" />
-                        </div>
-                    </div>
-                    <div class="markdown-container">
-                        {match self.render_content.clone() {
-                            Some(content) => content,
-                            None => html! {"loading."}
-                        }}
-                    </div>
-                </div>
-                <div class="bottom-prompt">{"🎉 已经到底了，感谢你的阅读！"}</div>
-            </div>
+            <div></div>
         }
     }
+}
 ```
 
 That's fucking awesome! which means that u can write component in Rust just like React or some JSX based framework, but the Yew is based on wasm-bindgen which means the dist code is a bundle of `WASM & JS` (cause the WASM cannot access DOM directly, so u may like access DOM using JS and then lnk the JS module in ur WASM module) rather than JS bundle.

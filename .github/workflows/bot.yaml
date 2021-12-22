@@ -27,6 +27,10 @@ jobs:
         uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: run zzhack analysis
+      
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 🤖️ create root metadata file by robot 🌟
 
       - name: Exec zzhack upload
         uses: VaultVulp/action-pipenv@v2.0.1
@@ -40,7 +44,4 @@ jobs:
             CDN domain: r1dqqf03a.hn-bkt.clouddn.com
           repo-token: ${{ secrets.BOT_GITHUB_AK }}
           repo-token-user-login: 'cdn-uploader[bot]'
-      
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 🤖️ create root metadata file by robot 🌟
+    

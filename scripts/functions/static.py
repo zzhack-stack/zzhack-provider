@@ -21,7 +21,7 @@ ALLOW_EXTENSIONS: Final = [
 
 def upload_to_cdn(ak: str, sk: str):
     upload = lambda filename: upload_stuff(filename, ak, sk) 
-    ret = subprocess.run(['git', '--no-pager', 'diff', '--diff-filter=MUR', '--name-status', 'HEAD', 'HEAD~2'], capture_output=True)
+    ret = subprocess.run(['git', '--no-pager', 'diff', '--diff-filter=MURD', '--name-status', 'HEAD', 'HEAD~2'], capture_output=True)
     diff_files = re.findall(r'\t(.+?)[\n\t]', str(ret.stdout, 'utf-8'), re.M|re.I)
 
     for file in diff_files:

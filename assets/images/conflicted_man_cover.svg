@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="280px" height="166px" viewBox="0 0 280 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFBE76" x="0" y="0" width="280" height="166"></rect>
+        <text id="2022" font-family="Helvetica" font-size="45" font-weight="normal" fill="#FFFFFF">
+            <tspan x="89" y="100">2022</tspan>
+        </text>
+        <text id="year" font-family="Helvetica" font-size="16" font-weight="normal" fill="#FFFFFF">
+            <tspan x="158" y="115">year</tspan>
+        </text>
+    </g>
+</svg>

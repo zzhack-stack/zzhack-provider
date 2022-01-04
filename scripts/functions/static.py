@@ -16,7 +16,8 @@ ALLOW_EXTENSIONS: Final = [
     '.json',
     '.md',
     '.png',
-    '.jpg'
+    '.jpg',
+    '.svg'
 ]
 
 def upload_to_cdn(ak: str, sk: str):

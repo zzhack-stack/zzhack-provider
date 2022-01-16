@@ -20,3 +20,9 @@ I started thinking about How should I live when I was 20 years old, I've spend m
 
 It's like the lines said people just need to change the way they look at those things.
 
+## Talk about money
+In this fucking world, how much money u make is a measure of the value of ur life, only a few people may care about what u wanna do rather than how much money can u make. So I try to explain to anyone who asked about my salary, but it didn't help anything.
+
+So I was like what kind of job makes money? If people need something whatever service, food or something like that, then u can make money from it cause demand, thus the one of the big factor in whether a job makes money is size of demand, and in fact the size of demand determine the ceiling of wage for this job, which means how much money u earn depends largely on the type of work u do, so if u really like do something u may not be earn salary commensurate with ur ability though u really like it.
+
+In my opinion, don't care what other people think of u, just do u wanna do though u don't have a high salary. I think the salary only needs to be enough support oneself, If u really wanna make money, go for it, also if u just wanna do something, just do it.

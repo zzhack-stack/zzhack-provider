@@ -10,5 +10,11 @@
         "link": "https://www.techgrow.cn",
         "desc": "用进废退 | 艺不压身",
         "logo": "https://www.techgrow.cn/img/head.jpg"
+    },
+    {
+        "name": "Christine的博客",
+        "desc": "虽然我不够优秀，但我从未放弃过努力。",
+        "logo": "https://christine-only.github.io/blog/logo.png",
+        "link": "https://christine-only.github.io/blog/"
     }
 ]

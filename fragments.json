@@ -1,6 +1,11 @@
 {
     "fragments": [
         {
+            "cover": "https://cdn.ahlele.com/assets/images/trigonometric.jpg",
+            "create_at": 1645804453324,
+            "content": "今天才知道 cos 是 complementary-sin..."
+        },
+        {
             "cover": "https://cdn.ahlele.com/assets/images/love.png",
             "create_at": 1645359165734,
             "content": "我体会到做不喜欢但又不得不做的事情的痛苦，为了恢复自己的身体的运动机能，开始给自己定计划每天的锻炼 KPI，但这个过程让我觉得痛苦，我开始在脑子里想 ‘21 天养成一个习惯’ 的事情，只要坚持到 21 天就行了吧，还是治标不治本，还是要恢复对以前运动的热爱才行。"
